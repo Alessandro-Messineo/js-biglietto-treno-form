@@ -10,3 +10,44 @@
 // MILESTONE 1:
 // Iniziamo implementando il programma senza alcuna estetica: usando esclusivamente due input e un bottone (non stilizzati), 
 // realizziamo le specifiche scritte sopra. La risposta finale (o output) sarà anch’essa da scrivere in console. 
+
+// inserire gli input nelle variabili
+const inputName = document.getElementById("name");
+const inputKm = document.getElementById("km");
+const inputAge = document.getElementById("age");
+const inputForm = document.querySelector("form");
+
+// gestione del form
+inputForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    // coverte i valori di input da stringhe a numeri
+    const age = parseInt(inputAge.value);
+    console.log(age);
+    const km = parseInt(inputKm.value);
+    console.log(km);
+
+
+    let price = km * 0.21;
+
+    //calcolo prezzo biglietto
+    if (age < 18) {
+        const discount = (price * 20) / 100;
+        price = price - discount;
+        console.log("età: " + age + " anni" + " - " + "distanza: " + km + "km");
+        console.log("Prezzo del biglietto: €" + price.toFixed(2));
+    } else if (age > 65) {
+        const discount = (price * 40) / 100;
+        price = price - discount;
+        console.log("età: " + age + " anni" + " - " + "distanza: " + km + "km");
+        console.log("Prezzo del biglietto: €" + price.toFixed(2));
+    } else {
+        console.log("età: " + age + " anni" + " - " + "distanza: " + km + "km");
+        console.log("Prezzo del biglietto: €" + price.toFixed(2));
+    }
+
+    console.log(inputName.value);
+
+})
+
